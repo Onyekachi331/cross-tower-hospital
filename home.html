@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <title>Cross Tower Hospital</title>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        box-sizing: border-box;
+        /* overflow: auto; */
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    .head {
+        background-color: rgb(4, 122, 168);
+        display: flex;
+        align-items: center;
+    }
+    
+    .head .head1 {
+        display: flex;
+        align-items: center;
+        margin: 10px 20px;
+    }
+    
+    .head .head1 button {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        border: none;
+    }
+    
+    .head .head1 p {
+        margin-left: 10px;
+        font-size: 18px;
+    }
+    
+    .head .head1 p a {
+        color: white;
+        text-decoration: none;
+        transition: .6s;
+    }
+    
+    .head .head1 p a:hover {
+        text-decoration: underline;
+        color: rgb(0, 153, 255);
+    }
+    
+    .header {
+        height: 80px;
+        background-color: rgb(19, 18, 18);
+    }
+    
+    .header .logo-text {
+        font-size: 30px;
+        font-weight: bold;
+        line-height: 80px;
+        margin-left: 20px;
+        color: white;
+    }
+    
+    .header .nav-list {
+        float: right;
+        margin: 0;
+        margin-right: 30px;
+        line-height: 80px;
+    }
+    
+    .header .nav-list li {
+        display: inline-block;
+        margin: 0;
+        margin-left: 50px;
+        transition: .6s;
+        line-height: 50px;
+    }
+    
+    .header .nav-list li a {
+        color: white;
+        text-decoration: none;
+        font-size: 17px;
+        transition: .6s;
+    }
+    
+    .header .nav-list li a:hover {
+        color: rgb(17, 163, 221);
+    }
+    
+    .header .nav-list li .dropdown {
+        position: absolute;
+        text-align: center;
+        background-color: rgb(4, 122, 168);
+        margin-left: -30px;
+        width: 160px;
+        transition: .5s;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    
+    .header .nav-list .listdrop:hover .dropdown {
+        transform: translateY(0px);
+        visibility: visible;
+        opacity: 1;
+        position: absolute;
+    }
+    
+    .header .dropdown li {
+        display: block;
+        text-align: left;
+        margin-left: -40px;
+        transition: .6s;
+    }
+    
+    .header .dropdown li:hover {
+        background-color: #252424b9;
+        transform: translateX(0px);
+    }
+    
+    .header .dropdown li a {
+        text-decoration: none;
+        color: white;
+        margin-left: 20px;
+        font-size: 17px;
+    }
+    
+    .header .dropdown li a:hover {
+        color: white;
+    }
+    
+    .checkBtn {
+        float: right;
+        line-height: 100px;
+        margin-right: 30px;
+        display: none;
+    }
+    
+    #check {
+        display: none;
+    }
+    
+    .book {
+        float: right;
+        padding: 15px 13px;
+        background-color: rgb(8, 86, 117);
+        color: white;
+        border: none;
+        border-radius: 3px;
+        margin-top: 15px;
+        margin-right: 30px;
+        transition: .6s;
+    }
+    
+    .book:hover {
+        background-color: rgb(0, 153, 255);
+        cursor: pointer;
+    }
+    
+    @media screen and (max-width: 720px) {
+        .head {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .head .head1 {
+            margin: 0;
+        }
+        .head .head1 p {
+            font-size: 11px;
+        }
+        .header .logo-text {
+            font-size: 25px;
+        }
+        .head .head1 button {
+            height: 22px;
+            width: 22px;
+            font-size: 10px;
+            text-align: center;
+        }
+        .header .listdrop .dropdown {
+            display: none;
+        }
+        .header .nav-list {
+            background-color: rgba(14, 60, 78, 0.822);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(20px);
+            width: 90%;
+            margin-top: 0px;
+            left: -100%;
+            position: absolute;
+            transition: all .6s;
+        }
+        .header .nav-list li {
+            display: block;
+            margin: auto;
+            text-align: center;
+            line-height: 100px;
+        }
+        .header .nav-list li a {
+            color: white;
+        }
+        .checkBtn {
+            display: block;
+        }
+        #check:checked~.nav-list {
+            left: 0;
+        }
+        .header .book {
+            display: none;
+        }
+    }
+    
+    @media screen and (max-width:420px) {
+        .header .logo-text {
+            font-size: 20px;
+        }
+        .header .nav-list {
+            background-color: rgba(14, 60, 78, 0.822);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(20px);
+            width: 90%;
+            margin-top: 0px;
+            left: -110%;
+            position: absolute;
+            transition: all .6s;
+        }
+        .header .book {
+            display: none;
+        }
+    }
+    
+    .container {
+        width: 100%;
+        height: 450px;
+        margin: 0;
+        background-image: url(slider.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding: 2px 0px;
+    }
+    
+    .container .text1 {
+        padding: 5px;
+        width: 700px;
+        margin-left: 40px;
+        margin-top: 40px;
+    }
+    
+    .text1 h1 {
+        font-size: 40px;
+        transition: all .6s;
+    }
+    
+    .text1 h1 font {
+        color: rgb(4, 85, 139);
+    }
+    
+    .text1 p {
+        width: 500px;
+        transition: all .6s;
+    }
+    
+    .text1 .text-btn button {
+        padding: 12px;
+        margin: 10px 10px;
+        transition: all.6s;
+    }
+    
+    .text1 .text-btn .btn1 {
+        background-color: rgb(4, 85, 139);
+        border: none;
+        border-radius: 3px;
+        color: white;
+        transition: all .6s;
+        cursor: pointer;
+        height: 50px;
+        width: 22%;
+    }
+    
+    .text1 .text-btn .btn1:hover {
+        background-color: black;
+    }
+    
+    .text1 .text-btn .btn2 {
+        background-color: black;
+        border: none;
+        border-radius: 3px;
+        color: white;
+        transition: all .6s;
+        cursor: pointer;
+        height: 50px;
+        width: 22%;
+    }
+    
+    .text1 .text-btn .btn2:hover {
+        background-color: rgb(4, 85, 139);
+    }
+    
+    @media screen and (max-width: 720px) {
+        .container .text1 {
+            display: block;
+            margin: auto;
+            width: fit-content;
+            padding-bottom: 50px;
+        }
+        .text1 h1 {
+            font-size: 28px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .text1 p {
+            width: 70%;
+            text-align: center;
+            display: block;
+            margin: auto;
+            margin-top: 30px;
+        }
+        .text1 .text-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .container .text1 .text-btn button {
+            width: 30%;
+        }
+    }
+    
+    @media screen and (max-width:420px) {
+        .container {
+            padding-bottom: 70px;
+        }
+        .container .text1 .text-btn button {
+            width: 30%;
+        }
+    }
+    
+    .show {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .slide-group {
+        width: 350px;
+        overflow: hidden;
+        margin: 10px 30px;
+    }
+    
+    .slider {
+        width: 100%;
+        display: flex;
+    }
+    
+    .slider img {
+        width: 100%;
+        animation: slide 16s infinite;
+    }
+    
+    @keyframes slide {
+        0% {
+            transform: translateX(0);
+        }
+        25% {
+            transform: translateX(0);
+        }
+        30% {
+            transform: translateX(-100%);
+        }
+        50% {
+            transform: translateX(-100%);
+        }
+        55% {
+            transform: translateX(-200%);
+        }
+        70% {
+            transform: translateX(-200%);
+        }
+        75% {
+            transform: translateX(-200%);
+        }
+        80% {
+            transform: translateX(-300%);
+        }
+        100% {
+            transform: translateX(-300%);
+        }
+    }
+    
+    .service {
+        margin: 40px 0px;
+    }
+    
+    .service1 h1 {
+        text-align: center;
+    }
+    
+    .service1 .s-hold {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 30px 0px;
+    }
+    
+    .s-hold .hold1 {
+        width: 270px;
+        padding: 10px;
+        text-align: center;
+        border-radius: 2px;
+        margin: 10px 40px;
+        transition: .6s;
+    }
+    
+    .s-hold .hold1:hover {
+        box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.40);
+        cursor: pointer;
+    }
+    
+    .s-hold .hold1 .img {
+        height: 90px;
+        width: 90px;
+        border-radius: 50%;
+        border: none;
+        background-color: #fff;
+        border: 1px solid rgb(223, 215, 215);
+        font-size: 30px;
+        transition: .6s;
+        cursor: pointer;
+    }
+    
+    .s-hold .hold1 .img:hover {
+        background-color: rgba(12, 148, 202, 0.863);
+    }
+    
+    .s-hold .hold1 .learn-btn {
+        display: block;
+        margin: auto;
+        width: 40%;
+        height: 40px;
+        border: none;
+        background-color: rgb(4, 122, 168);
+        font-size: 15px;
+        margin-bottom: 30px;
+        color: white;
+    }
+    
+    @media screen and (max-width: 720px) {
+        .service .service1 h1 {
+            font-size: 20px;
+        }
+        .service1 .s-hold {
+            flex-wrap: wrap;
+        }
+        .s-hold .hold1 {
+            width: 250px;
+            box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.40);
+        }
+        .show {
+            flex-wrap: wrap;
+        }
+        .show .slide-group {
+            width: 270px;
+        }
+    }
+    
+    .service2 {
+        margin: 40px 0px;
+    }
+    
+    .service2 .group-hold {
+        width: 350px;
+        display: flex;
+    }
+    
+    .service2 h1 {
+        text-align: center;
+        margin-top: 40px;
+    }
+    
+    .service2 .group {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .service2 .group-hold {
+        margin: 3px 20px;
+    }
+    
+    .service2 .group-hold button {
+        height: 80px;
+        width: 200px;
+        background-color: transparent;
+        border: none;
+        color: rgb(6, 101, 165);
+        font-size: 40px;
+        margin: 10px 20px;
+    }
+    
+    .service2 .group-hold .group-text p {
+        font-size: 14px;
+        color: gray;
+    }
+    
+    @media screen and (max-width: 720px) {
+        .service2 h1 {
+            font-size: 18px;
+            width: 270px;
+            display: block;
+            margin: auto;
+        }
+        .service2 .group-hold button {
+            font-size: 28px;
+        }
+        .service2 .group {
+            flex-wrap: wrap;
+        }
+        .service2 .group-hold {
+            width: 300px;
+        }
+        .service2 .group-hold .group-text h2 {
+            font-size: 17px;
+        }
+        .service2 .group-hold .group-text p {
+            font-size: 10px;
+        }
+    }
+    
+    .service3 h1 {
+        text-align: center;
+    }
+    
+    .price-group {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .price-hold {
+        width: 270px;
+        padding: 20px;
+        box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.20);
+        margin: 10px 30px;
+        transition: all .5s;
+    }
+    
+    .price-hold .p-hold {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin: auto;
+    }
+    
+    .price-hold .p-hold p {
+        color: gray;
+    }
+    
+    .price-hold .p-hold i {
+        color: rgb(17, 163, 221);
+    }
+    
+    #price-icon {
+        display: block;
+        margin: auto;
+        border: none;
+        background-color: transparent;
+        font-size: 50px;
+        color: rgb(17, 163, 221);
+    }
+    
+    .price-name {
+        text-align: center;
+        font-size: 25px;
+        color: gray;
+    }
+    
+    .price-hold h3 {
+        font-size: 30px;
+        text-align: center;
+        margin-top: -16px;
+    }
+    
+    .price-hold font {
+        font-size: 17px;
+        color: gray;
+        font-weight: 100;
+    }
+    
+    .book-btn {
+        display: block;
+        margin: auto;
+        padding: 10px;
+        width: 100%;
+        background-color: rgb(4, 122, 168);
+        border: none;
+        border-radius: 3px;
+        color: white;
+        margin-top: 20px;
+    }
+    
+    @media screen and (max-width: 720px) {
+        .service3 h1 {
+            font-size: 16px;
+        }
+        .service3 .price-group {
+            flex-wrap: wrap;
+            transform: translateX(0);
+        }
+        .service3 .price-group .price-hold {
+            width: 250px;
+        }
+    }
+    
+    .about-hold {
+        background-color: rgb(233, 227, 215);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        padding: 30px 0px;
+    }
+    
+    .about .label h1 {
+        text-align: center;
+    }
+    
+    .about-hold .about-text {
+        width: 400px;
+        animation: slide4 20s backwards;
+        transform: translateX(-30%);
+        animation-timeline: scroll();
+        animation-delay: 10s;
+    }
+    
+    @keyframes slide4 {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+            animation-delay: 10s;
+        }
+    }
+    
+    .about-hold .about-text p {
+        text-align: justify;
+    }
+    
+    .about-hold .about-text button {
+        padding: 10px;
+        border: none;
+        border-radius: 3px;
+        background-color: rgb(4, 85, 139);
+        color: white;
+        transition: .6s;
+    }
+    
+    .about-hold .about-text button:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+    
+    .about-hold .about-img {
+        width: 500px;
+        transform: translateX(30%);
+        animation: slide5 10s forwards;
+        animation-delay: 10s;
+        animation-timeline: scroll();
+    }
+    
+    @keyframes slide5 {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+            animation-delay: 10s;
+        }
+    }
+    
+    .about-hold .about-img img {
+        border-radius: 20px;
+    }
+    
+    @media screen and (max-width: 720px) {
+        .about {
+            overflow: hidden;
+        }
+        .about .about-hold {
+            flex-wrap: wrap;
+        }
+        .about .about-hold .about-text {
+            width: 280px;
+            transform: translateX(0);
+            margin-bottom: 20px;
+        }
+        .about .about-hold .about-img {
+            width: 300px;
+            transform: translateX(0);
+        }
+    }
+    
+    .contact-hold {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .contact .label h1 {
+        text-align: center;
+    }
+    
+    .contact-hold .form-area {
+        width: 600px;
+    }
+    
+    .form-area h2 {
+        margin-left: 10px;
+    }
+    
+    .contact-hold .form-area .form1 {
+        display: flex;
+        margin: auto;
+    }
+    
+    .form-area .form1 input {
+        padding: 10px;
+        margin: 10px 10px;
+        height: 30px;
+        width: 400px;
+        font-size: 17px;
+        border: 1px solid rgb(201, 190, 190);
+    }
+    
+    .form-area .form1 select {
+        padding: 10px;
+        height: 53px;
+        width: 426px;
+        font-size: 17px;
+        margin: 10px 10px;
+        border: 1px solid rgb(201, 190, 190);
+    }
+    
+    .form-area textarea {
+        padding: 10px;
+        font-size: 17px;
+        height: 100px;
+        width: 560px;
+        margin-left: 10px;
+        border: 1px solid rgb(201, 190, 190);
+    }
+    
+    .form-area .send-btn {
+        padding: 10px;
+        margin-left: 10px;
+        width: 25%;
+        border: none;
+        border-radius: 3px;
+        background-color: rgb(4, 122, 168);
+        color: white;
+        transition: all .6s;
+        margin-top: 30px;
+    }
+    
+    .form-area .send-btn:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+    
+    .contact-hold .contact-img {
+        width: 500px;
+    }
+    
+    @media screen and (max-width: 720px) {
+        .contact .label h1 {
+            font-size: 20px;
+        }
+        .contact .contact-hold {
+            flex-wrap: wrap;
+        }
+        .contact-hold .form-area {
+            width: 370px;
+            background-color: black;
+            padding: 20px 0px;
+        }
+        .form-area h2 {
+            color: white;
+            text-align: center;
+        }
+        .contact-hold .form-area .form1 {
+            flex-wrap: wrap;
+        }
+        .form-area .form1 input {
+            width: 250px;
+            display: block;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+        .form-area .form1 select {
+            width: 272px;
+            display: block;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+        .contact-hold .form-area textarea {
+            width: 250px;
+            display: block;
+            margin: auto;
+        }
+        .contact-hold .contact-img {
+            width: 300px;
+        }
+    }
+    
+    footer {
+        background-color: rgb(4, 122, 168);
+        padding: 20px 0px;
+        margin-top: 50px;
+        color: white;
+        text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.30);
+    }
+    
+    .foot-group {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+    }
+    
+    .foot1,
+    .foot2,
+    .foot3,
+    .foot4 {
+        height: 270px;
+        width: fit-content;
+    }
+    
+    .foot-group .foot1 {
+        margin: 10px 20px;
+    }
+    
+    .foot-group .foot1 p {
+        width: 240px;
+        text-align: justify;
+    }
+    
+    .foot1 .social-media button {
+        height: 40px;
+        width: 40px;
+        margin: 0px 6px;
+        border: none;
+        border-radius: 50%;
+        font-size: 17px;
+        background-color: #fff;
+    }
+    
+    .foot2 {
+        margin: 10px 20px;
+    }
+    
+    .foot2 nav {
+        width: fit-content;
+    }
+    
+    .foot2 nav li {
+        list-style: none;
+        line-height: 40px;
+        transition: all .6s;
+    }
+    
+    .foot2 nav li:hover {
+        margin-left: 8px;
+    }
+    
+    .foot2 nav li a {
+        color: white;
+        text-decoration: none;
+        margin-left: 10px;
+    }
+    
+    .foot3 {
+        margin: 10px 20px;
+    }
+    
+    .foot3 p {
+        width: 280px;
+        text-align: justify;
+    }
+    
+    .foot3 .hour-hold {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 240px;
+        background-color: rgba(0, 0, 0, 0.678);
+        font-size: 13px;
+        padding: 0px 10px;
+        margin: 10px 0px;
+    }
+    
+    .foot4 {
+        margin: 10px 20px;
+    }
+    
+    .foot4 p {
+        width: 280px;
+        text-align: justify;
+    }
+    
+    .foot4 .email-hold {
+        display: flex;
+        width: fit-content;
+        border: 2px solid white;
+        border-radius: 5px;
+    }
+    
+    .foot4 .email-hold input {
+        padding: 10px;
+        background-color: transparent;
+        border: none;
+        font-size: 15px;
+        color: white;
+    }
+    
+    .foot4 .email-hold input::placeholder {
+        color: white;
+        transition: all .5s;
+        font-size: 15px;
+    }
+    
+    .foot4 .email-hold input:hover::placeholder {
+        transform: translateX(7px);
+    }
+    
+    .foot4 .email-hold button {
+        width: 50px;
+        background-color: #fff;
+        border: none;
+        font-size: 17px;
+    }
+    
+    .author {
+        background-color: rgba(0, 0, 0, 0.904);
+        text-align: center;
+        color: white;
+        padding: 2px 0px;
+    }
+    
+    @media screen and (max-width: 720px) {
+        .foot-group {
+            flex-wrap: wrap;
+        }
+    }
+    
+    .back-btn {
+        height: 40px;
+        width: 40px;
+        border: 2px solid white;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.50);
+        border-radius: 50%;
+        background-color: rgb(4, 122, 168);
+        color: white;
+        font-size: 16px;
+        top: 90%;
+        left: 88%;
+        position: fixed;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="head">
+        <div class="head1">
+            <button><i class="fas fa-phone"></i></button>
+            <p>
+                <a href="tel:+234 818 888 8374">+234 818 888 8374</a>
+                <a href="tel:+234 909 989 9933">+234 909 989 9933</a>
+            </p>
+        </div>
+
+        <div class="head1">
+            <button><i class="fas fa-envelope"></i></button>
+            <p>
+                <a href="mailto:crosstowerhp@gmail.com">crosstowerhp@gmail.com</a>
+
+            </p>
+        </div>
+    </div>
+
+
+    <nav class="header">
+        <input type="checkbox" id="check">
+        <label for="check" class="checkBtn"><img src="menu img.png" height="30px"></label>
+        <button class="book">Book Appointment</button>
+        <label for="" class="logo-text">Cross Tower Hospital</label>
+
+        <ul class="nav-list">
+            <li>
+                <a href="#home">Home</a>
+            </li>
+            <li class="listdrop">
+                <a href="#services">Services</a>
+
+                <ul class="dropdown">
+                    <li>
+                        <a href="">Home Care</a>
+                    </li>
+                    <li>
+                        <a href="">Emergency Care</a>
+                    </li>
+                    <li>
+                        <a href="">Antenatal Care</a>
+                    </li>
+                    <li>
+                        <a href="">Family Care</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#about">About </a>
+            </li>
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+        </ul>
+
+    </nav>
+
+
+    <div id="home" class="container">
+        <div class="text1">
+            <h1>We Provide
+                <font> Medical Services</font> <br>
+                <font>That You</font> Can Trust
+            </h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit quos magni explicabo. Ipsam odio reiciendis beatae explicabo eaque, nostrum repellendus consequuntur?
+            </p>
+            <div class="text-btn">
+                <button class="btn1">Get Appointment</button>
+                <button class="btn2">Explore More</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="services" class="service">
+        <div class="service1">
+            <h1>We Are Always Ready to Help You & <br> Your Family </h1>
+
+
+            <div class="s-hold">
+                <div class="hold1">
+                    <button class="img"><i class="fas fa-truck-medical"></i></button>
+                    <h3>Emergency Help</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, quis.</p>
+                    <button class="learn-btn">Learn More</button>
+                </div>
+
+                <div class="hold1">
+                    <button class="img"><i class="fas fa-hand-holding-medical"></i></button>
+                    <h3>Enriched Pharmacy</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, quis.</p>
+                    <button class="learn-btn">Learn More</button>
+                </div>
+
+                <div class="hold1">
+                    <button class="img"><i class="fa fa-stethoscope"></i></button>
+                    <h3>Medical Treatment</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, quis.</p>
+                    <button class="learn-btn">Learn More</button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="show">
+
+            <div class="slide-group">
+                <div class="slider">
+                    <img src="blog1.jpg">
+                    <img src="blog2.jpg">
+                    <img src="blog3.jpg">
+                    <img src="blog2.jpg">
+                    <img src="blog1.jpg">
+                    <img src="blog3.jpg">
+                </div>
+            </div>
+
+            <div class="slide-group">
+                <div class="slider">
+                    <img src="blog1.jpg">
+                    <img src="blog3.jpg">
+                    <img src="blog2.jpg">
+                    <img src="blog1.jpg">
+                    <img src="blog3.jpg">
+                    <img src="blog2.jpg">
+                </div>
+            </div>
+
+            <div class="slide-group">
+                <div class="slider">
+                    <img src="blog1.jpg">
+                    <img src="blog2.jpg">
+                    <img src="blog3.jpg">
+                    <img src="blog3.jpg">
+                    <img src="blog3.jpg">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="service2">
+            <h1>We Offer Different Services To Improve <br> Your Health</h1>
+
+            <div class="group">
+                <div class="group-hold">
+                    <button><i class="fas fa-capsules"></i></button>
+                    <div class="group-text">
+                        <h2>General Treatment</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, dicta. Laborum quam nulla illo ipsa asperiores.</p>
+                    </div>
+                </div>
+
+                <div class="group-hold">
+                    <button><i class="fas fa-tooth"></i></button>
+                    <div class="group-text">
+                        <h2>Tooth Whitening</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, dicta. Laborum quam nulla illo ipsa asperiores.</p>
+                    </div>
+                </div>
+
+                <div class="group-hold">
+                    <button><i class="fas fa-heart-pulse"></i></button>
+                    <div class="group-text">
+                        <h2>Heart Surgery</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, dicta. Laborum quam nulla illo ipsa asperiores.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="group">
+                <div class="group-hold">
+                    <button><i class="fas fa-ear-listen"></i></button>
+                    <div class="group-text">
+                        <h2>Ear Treatment</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, dicta. Laborum quam nulla illo ipsa asperiores.</p>
+                    </div>
+                </div>
+
+                <div class="group-hold">
+                    <button><i class="fas fa-eye"></i></button>
+                    <div class="group-text">
+                        <h2>Visual Problem</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, dicta. Laborum quam nulla illo ipsa asperiores.</p>
+                    </div>
+                </div>
+
+                <div class="group-hold">
+                    <button><i class="fas fa-fire-flame-simple"></i></button>
+                    <div class="group-text">
+                        <h2>Blood Transfusion</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, dicta. Laborum quam nulla illo ipsa asperiores.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="service3">
+            <h1>We Provide You The Best Treatment In <br> Resonable Price</h1>
+
+            <div class="price-group">
+                <div class="price-hold">
+                    <button id="price-icon"> <i class="fab fa-medrt" ></i></button>
+                    <p class="price-name">Plastic Surgery</p>
+                    <h3>$199
+                        <font>/Per Visit</font>
+                    </h3>
+                    <div class="p-hold">
+                        <p>Lorem ipsum dolor sit.</p>
+                        <i class="fas fa-circle-check"></i>
+                    </div>
+                    <div class="p-hold">
+                        <p>Lorem ipsum dolor sit.</p>
+                        <i class="fas fa-circle-check"></i>
+                    </div>
+                    <div class="p-hold">
+                        <p>Lorem ipsum dolor sit.</p>
+                        <i class="fas fa-circle-xmark"></i>
+                    </div>
+                    <div class="p-hold">
+                        <p>Lorem ipsum dolor sit.</p>
+                        <i class="fas fa-circle-xmark"></i>
+                    </div>
+                    <button class="book-btn">Book Now</button>
+                </div>
+
+                <div class="price-hold" id="slide3">
+                    <button id="price-icon"> <i class="fas fa-tooth" ></i></button>
+                    <p class="price-name">Tooth Whitening</p>
+                    <h3>$199
+                        <font>/Per Visit</font>
+                    </h3>
+                    <div class="p-hold">
+                        <p>Lorem ipsum dolor sit.</p>
+                        <i class="fas fa-circle-check"></i>
+                    </div>
+                    <div class="p-hold">
+                        <p>Lorem ipsum dolor sit.</p>
+                        <i class="fas fa-circle-check"></i>
+                    </div>
+                    <div class="p-hold">
+                        <p>Lorem ipsum dolor sit.</p>
+                        <i class="fas fa-circle-xmark"></i>
+                    </div>
+                    <div class="p-hold">
+                        <p>Lorem ipsum dolor sit.</p>
+                        <i class="fas fa-circle-xmark"></i>
+                    </div>
+                    <button class="book-btn">Book Now</button>
+                </div>
+
+
+                <div class="price-hold">
+                    <button id="price-icon"> <i class="fas fa-heart-pulse" ></i></button>
+                    <p class="price-name">Plastic Surgery</p>
+                    <h3>$199
+                        <font>/Per Visit</font>
+                    </h3>
+                    <div class="p-hold">
+                        <p>Lorem ipsum dolor sit.</p>
+                        <i class="fas fa-circle-check"></i>
+                    </div>
+                    <div class="p-hold">
+                        <p>Lorem ipsum dolor sit.</p>
+                        <i class="fas fa-circle-check"></i>
+                    </div>
+                    <div class="p-hold">
+                        <p>Lorem ipsum dolor sit.</p>
+                        <i class="fas fa-circle-xmark"></i>
+                    </div>
+                    <div class="p-hold">
+                        <p>Lorem ipsum dolor sit.</p>
+                        <i class="fas fa-circle-xmark"></i>
+                    </div>
+                    <button class="book-btn">Book Now</button>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div id="about" class="about">
+        <div class="label">
+            <h1>About us</h1>
+        </div>
+
+        <div class="about-hold">
+            <div class="about-text">
+                <h2>Cross Tower Hospital</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dolorum mollitia eius ratione, nemo libero nulla laboriosam reiciendis vel cum omnis tempore. Facilis alias recusandae voluptatibus sapiente nobis placeat quae!</p>
+                <button>Read More</button>
+            </div>
+
+            <div class="about-img">
+                <img src="blog2.jpg" width="100%">
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="contact">
+        <div class="label">
+            <h1>We Are Always Ready to Help You. <br> Book An Appointment</h1>
+        </div>
+
+        <div class="contact-hold">
+            <div class="form-area">
+                <h2>Send Us Message</h2>
+                <form>
+                    <div class="form1">
+                        <input type="text" placeholder="Name" required>
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="form1">
+                        <input type="tel" placeholder="Phone" required>
+                        <select name="department" id="" required>
+                            <optgroup label="Department">
+                            <option value="Deparment">Deparments</option>
+                            <option value="Deparment">Surgical Deparment</option>
+                            <option value="Deparment">Pregancy Deparment</option>
+                            <option value="Deparment">Emergency Deparment</option>
+                            <option value="Deparment">Anti-Natal Deparment</option>
+                        </optgroup>
+                        </select>
+                    </div>
+                    <div class="form1">
+                        <select name="doctor" id="" required>
+                            <optgroup label="Specilist">
+                                <option value="Doctor">Doctor</option>
+                                <option value="Nurse">Nurse</option>
+                                <option value="Mid-Wives">Mid-Wives</option>
+                                <option value="Surgeons">Surgeons</option>
+                            </optgroup>
+                        </select>
+                        <input type="date" placeholder="Date" required>
+                    </div>
+                    <textarea name="message" id="" placeholder="Write your Message Here......"></textarea>
+                    <button class="send-btn">Send Message</button>
+                </form>
+            </div>
+
+
+            <div class="contact-img">
+                <img src="contact-img.png" width="100%">
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <div class="foot-group">
+            <div class="foot1">
+                <h2>Cross Tower Hospital</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo veniam debitis odio deserunt voluptate eligendi illo, harum eaque eos officia?</p>
+                <div class="social-media">
+                    <button><i class="fab fa-facebook-f"></i></button>
+                    <button><i class="fab fa-whatsapp"></i></button>
+                    <button><i class="fab fa-twitter"></i></button>
+                    <button><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+
+            <div class="foot2">
+                <h2>Quick Links</h2>
+                <nav>
+
+                    <li>
+                        <i class="fas fa-caret-right"></i> <a href="">Home</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-caret-right"></i> <a href="">Services</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-caret-right"></i> <a href="">About us</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-caret-right"></i> <a href="">Contact us</a>
+                    </li>
+
+                </nav>
+            </div>
+
+
+            <div class="foot3">
+                <h2>Opening Hours</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero corporisillo.</p>
+                <div class="hour-hold">
+                    <p>Monday - Friday</p>
+                    <p>8:00am - 12:00pm</p>
+                </div>
+                <div class="hour-hold">
+                    <p>Saturday</p>
+                    <p>8:00am - 10:00pm</p>
+                </div>
+            </div>
+
+            <div class="foot4">
+                <h2>Newsletter</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum explicabo minus corporis sunt veniam voluptates, esse magni.</p>
+                <div class="email-hold">
+                    <input type="email" placeholder="Email Address">
+                    <button><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <div class="author">
+        <p>Created and Developed By Onyekachi Ebunoha &copy;</p>
+    </div>
+
+    <a href="#"><button class="back-btn"><i class="fas fa-arrow-up"></i></button></a>
+
+</body>
+
+</html>
+
+</html>
+
+</html>
+
+</html>
+
+</html>
+
+</html>
+
+</html>
+
+</html>
+
+</html>
